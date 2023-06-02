@@ -14,6 +14,7 @@
             <h2 class="text-primary">Create Category</h2>
             <hr />
         </div>
+        @*<div asp-validation-summary="All"></div>*@  @*used for display the summary of all the errors*@ 
         <div class="mb-3">
             <label asp-for="Name"></label>
             <input asp-for="Name" class="form-control" />
@@ -22,13 +23,21 @@
         <div class="mb-3">
             <label asp-for="DisplayOrder"></label>
             <input asp-for="DisplayOrder" class="form-control" />
-            <span asp-validation-for="DisplayOrder" class="text-danger"></span>
+            <span asp-validation-for="DisplayOrder" class="text-danger"></span>   @*Another method for displaying errors*@ 
         </div>
         <button type="submit" class="btn btn-primary" style="width:150px">Create</button>
         <a asp-controller="Category" asp-action="Index" class="btn btn-primary" style="width:150px">Back to list</a>
 
     </div>
 </form>
+
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />  @*used for inclusion of client side validations from the partial view*@
+    }
+}
+
 
 
 
